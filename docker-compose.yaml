@@ -1,0 +1,32 @@
+version: '3.8'
+services: 
+  php-symfo:
+    container_name: php-symfo
+    build: 
+      context: ./php-symfo
+      dockerfile: Dockerfile
+    ports:
+      - 9000:8000
+    volumes:
+      - .:/var/www/html
+
+  mailer:
+    image: mailhog/mailhog
+    container_name: mailhog
+    ports:
+      - 8025:8025
+
+  database:
+    image: postgres:13-alpine
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - db_data:/var/lib/postgresql/db_data:rw
+
+volumes:
+  db_data:
+
