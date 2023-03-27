@@ -53,7 +53,7 @@ symfony serve -d
 ### Voir le projet
 - [http://localhost:9000](http://localhost:9000)
 
-## Commandes Docker
+## Commandes utiles Docker
 - Lister les conteneurs Docker
 ```bash
 docker ps -a
